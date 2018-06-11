@@ -1,7 +1,11 @@
 <?php
 require_once("functions.php");
-mkdir("include");
-mkdir("include/users");
+if (!file_exists('include')){
+    mkdir("include", 0700);  
+}
+if (!file_exists('include/users')){
+    mkdir("include/users", 0700);
+}
 if (!file_exists('include/users/db.xml')){
     $xml = new DOMDocument("1.0","UTF-8");
     $xml -> loadXML("<users></users>");
